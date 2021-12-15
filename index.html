@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Witaj świecie</h1>
+    Tablica1:
+    <input id="text1" type="text" name="tab1">
+    Tablica2:
+    <input id="text2" type="text" name="tab2">
+    <input type="submit" onclick="porownaj()" value="porownaj">
+    <br>
+    <label id="wynik" ></label>
+
+    <script>
+
+        function porownaj(){
+            var tab1 =[];
+            var tab2 = [];
+            var text1 = document.getElementById("text1");
+            var text2 = document.getElementById("text2");
+            var wynik = document.getElementById("wynik");
+            
+        console.log(text1.value);
+        tab1=text1.value.split(",");
+        tab2=text2.value.split(",");
+
+        for(var i=0;i<tab1.length;i++){
+            for(var j=0;j<tab2.length;j++){
+                if (tab1[i]===tab2[j]) {
+                    tab1.splice(i,1);
+                    i--;
+                }
+            }
+        }
+        wynik.innerHTML=tab1;    
+    }
+    
+        
+        
+    </script>
+</body>
+</html>
